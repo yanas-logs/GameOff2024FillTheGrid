@@ -1,0 +1,83 @@
+@import "pixel-retroui/dist/index.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900;
+    image-rendering: pixelated;
+  }
+}
+
+@layer components {
+  .retro-container {
+    @apply min-h-screen p-4 flex items-center justify-center;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.1) 0px,
+      rgba(0, 0, 0, 0.1) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+  }
+
+  .game-grid {
+    @apply grid gap-3 p-4 bg-black/10 rounded-lg backdrop-blur-sm;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+
+  .game-cell {
+    @apply w-14 h-14 text-center text-xl font-bold rounded-lg transition-all duration-200;
+    @apply bg-white/90 border-2 border-purple-500;
+    @apply focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2;
+    @apply hover:transform hover:scale-105;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .game-cell:disabled {
+    @apply bg-gray-200 border-gray-400 text-gray-700;
+  }
+
+  .game-cell.correct {
+    @apply bg-green-200 border-green-500 text-green-700;
+  }
+
+  .retro-button {
+    @apply px-6 py-3 font-bold text-white rounded-lg transition-all duration-200;
+    @apply bg-gradient-to-r from-purple-600 to-purple-800;
+    @apply hover:from-purple-700 hover:to-purple-900;
+    @apply transform hover:scale-105 active:scale-95;
+    box-shadow: 0 4px 0 theme("colors.purple.900");
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .level-card {
+    @apply p-6 rounded-xl transition-all duration-300;
+    @apply bg-gradient-to-br from-purple-600 to-purple-800;
+    @apply hover:from-purple-700 hover:to-purple-900;
+    @apply transform hover:scale-105;
+    box-shadow: 0 8px 0 theme("colors.purple.900");
+  }
+
+  .score-display {
+    @apply flex items-center gap-2 px-4 py-2 rounded-lg;
+    @apply bg-yellow-400 text-yellow-900 font-bold;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.cards {
+  display: flex;
+  margin: auto;
+  width: 20px;
+}
+
+.btn {
+  @apply px-4 py-2 bg-blue-500 text-white rounded;
+}
